@@ -69,12 +69,12 @@ public class productController {
 		return "showById";
 	}
 	
-	@RequestMapping("/showAll")
+	@RequestMapping("/Showall")
 	public String getshowAll(Model m) {
 		ArrayList<productBean> list = (ArrayList<productBean>) pr.findAll();
 		
 		m.addAttribute("list",list);
-		return "showAll";
+		return "Showall";
 	}
 	
 }

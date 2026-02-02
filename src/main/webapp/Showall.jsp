@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center><h1>PRODUCT PRESENT</h1></center>
+<center><h1>PRODUCT PRESENT IN THE TABLE</h1></center>
 
 <%-- 
 <c:if test="${empty list}"

@@ -21,7 +21,7 @@
             <a href="deleteProduct">Delete Product</a>
             <a href="updateProduct">Update Product</a>
             <a href="showById">Show Product by ID</a>
-            <a href="showAll">Show All Products</a>
+            <a href="Showall">Show All Products</a>
         </div>
     </div>
 </body>
