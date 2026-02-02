@@ -17,11 +17,11 @@
     <div class="container">
         <h2>Product Management Home</h2>
         <div class="menu">
-            <a href="/addProduct">Add Product</a>
-            <a href="/deleteProduct">Delete Product</a>
-            <a href="/updateProduct">Update Product</a>
-            <a href="/showById">Show Product by ID</a>
-            <a href="/showAll">Show All Products</a>
+            <a href="addProduct">Add Product</a>
+            <a href="deleteProduct">Delete Product</a>
+            <a href="updateProduct">Update Product</a>
+            <a href="showById">Show Product by ID</a>
+            <a href="showAll">Show All Products</a>
         </div>
     </div>
 </body>

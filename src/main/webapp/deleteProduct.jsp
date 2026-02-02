@@ -9,7 +9,7 @@
 <body>
     <div class="box">
         <h2>Delete Product</h2>
-        <form action="/delete" method="post">
+        <form action="delete">
             <input type="text" name="id" placeholder="Enter Product ID" required>
             <button type="submit">Delete</button>
         </form>

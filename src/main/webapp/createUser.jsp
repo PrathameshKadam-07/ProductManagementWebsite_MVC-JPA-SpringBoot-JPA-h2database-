@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%--
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ --%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +24,17 @@
         <form action="createUserPage" method="post">
             <input type="text" name="uname" placeholder="Enter Username" required>
             <input type="password" name="pass" placeholder="Enter Password" required>
+
+<%--
+            <c:if test="${not empty msg}">
+            <c:out value="${msg}"></c:out> 
+            </c:if>       
+--%>
+
             <button type="submit">Register</button>
         </form>
         <div style="text-align:center; margin-top:10px;">
-            <a href="loginUser">Back to Login</a>
+            <a href="index">Back to Login</a>
         </div>
     </div>
 </body>

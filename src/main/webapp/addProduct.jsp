@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="https://java.sun.com/jsp/jstl/core" prefix="c" %>
+  <%-- <%@ taglib prefix="c" uri="jakarta.tags.core" %> --%>
 <!DOCTYPE html>
 
 <html>
@@ -17,16 +17,23 @@
 <body>
     <div class="box">
         <h2>Add Product</h2>
-        <form action="/add">
-            <input type="text" name="id" placeholder="Product ID" required>
-            <input type="text" name="name" placeholder="Product Name" required>
+        <form action="add">
+            <input type="text" name="pid"	 placeholder="Product ID" required>
+            <input type="text" name="pname"  placeholder="Product Name" required>
+            <input type="number" name="qty" placeholder="Quantity" required>
             <input type="number" name="price" placeholder="Price" required>
-            <input type="number" name="quantity" placeholder="Quantity" required>
+
+ <%-- 
+ 	<c:if test="${not empty msg}">
+            <c:out value="${msg}" />
+        </c:if>
+ --%>	
+        
             <button type="submit">Add</button>
         </form>
         
         <div style="text-align:center; margin-top:10px;">
-            <a href="/home.jsp">Back to Home</a>
+            <a href="./home.jsp">Back to Home</a>
         </div>
     </div>
 </body>

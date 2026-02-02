@@ -9,8 +9,9 @@ import org.springframework.stereotype.Repository;
 import com.bean.loginBean;
 
 @Repository
-public interface loginRepository extends JpaRepository<loginBean,String > 
+public interface loginRepository extends JpaRepository<loginBean,String> 
 {
 
 	ArrayList<loginBean> findByUnameAndPass(String uname,String pass); 
+	
 }

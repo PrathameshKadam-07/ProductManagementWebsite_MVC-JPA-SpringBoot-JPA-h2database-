@@ -20,24 +20,24 @@ public class loginController {
 	@Autowired
 	loginRepository lr;
 
-	@RequestMapping("loginUser")
+	@RequestMapping("/index")
 	public String getindex() {
-		return "loginUser";
-	}
+		return "index";
+		}
 	
-	@RequestMapping("createUser")
+	@RequestMapping("/createUser")
 	public String getcreateUser() {
 		return "createUser";
 	}
 	
-    @RequestMapping(value = "loginpage", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String getlogin(@RequestParam("uname") String uname, @RequestParam("pass") String pass,HttpSession session,Model m) {
 		ArrayList<loginBean> list = lr.findByUnameAndPass(uname, pass);
 		
 		if(list.isEmpty()) 
 		{
 			m.addAttribute("msg","Invalid username or password");
-			return "loginUser";
+			return "index";
 		}
 		else 
 		{
@@ -47,9 +47,11 @@ public class loginController {
 		}
 	}
     
-    @RequestMapping(value = "createUserPage")
-    public String createUser(@RequestParam("uname") String uname,@RequestParam("pass") String pass) {
+    @RequestMapping(value = "/createUserPage", method = RequestMethod.POST)
+    public String createUser(loginBean lb,Model m) {
+    	lr.save(lb);
     	
-    	return "createUserPage";
+    	m.addAttribute("msg","Successful User Created");
+    	return "createUser";
     }
 }
