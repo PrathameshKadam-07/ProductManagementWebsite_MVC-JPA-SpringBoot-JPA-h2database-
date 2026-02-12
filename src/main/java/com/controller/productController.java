@@ -58,7 +58,7 @@ public class productController {
 	
 	@RequestMapping("/showById")
 	public String getshowbyID() {
-		return "updateProduct";
+		return "showById";
 	}
 	
 	@RequestMapping("/showbyid")
