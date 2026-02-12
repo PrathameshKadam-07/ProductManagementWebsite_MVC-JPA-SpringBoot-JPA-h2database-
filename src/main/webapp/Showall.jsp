@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- --%>
+   <%@ taglib prefix="c" uri="jakarta.tags.core" %>
  
 <!DOCTYPE html>
 <html>
@@ -13,9 +11,9 @@
 <body>
 <center><h1>PRODUCT PRESENT IN THE TABLE</h1></center>
 
-<%-- 
-<c:if test="${empty list}"
-<h3>No Product In the Table<h3>
+
+<c:if test="${empty list}">
+<h3>No Product In the Table</h3>
 </c:if>
 
 <c:if test="${not empty list}">
@@ -26,7 +24,7 @@
 <th>Product QTY</th>
 <th>Product Price</th>
 </tr>
-<c:forEach var="p" items="${product}">
+<c:forEach var="p" items="${list}">
 <tr>
 <td><c:out value="${p.pid}"></c:out></td>
 <td><c:out value="${p.pname}"></c:out></td>
@@ -36,7 +34,6 @@
 </c:forEach>
 </table>
 </c:if>
- --%>
  
 </body>
 </html>

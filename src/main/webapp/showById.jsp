@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%-- 
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- --%>
+   <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +20,7 @@
         <form action="showbyid" method="post">
             <input type="text" name="id" placeholder="Enter Product ID" required>
             <button type="submit">Show</button>
- <%--          
+         
  <c:if test="${empty product}">
     <h3>Product not found</h3>
 </c:if>
@@ -43,7 +40,6 @@
 </tr>
 </table>
 </c:if>
---%>
              
         </form>
         <div style="text-align:center; margin-top:10px;">
