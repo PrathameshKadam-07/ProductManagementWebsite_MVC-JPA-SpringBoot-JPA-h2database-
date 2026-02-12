@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-   <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
  
 <!DOCTYPE html>
 <html>
@@ -23,11 +22,9 @@
             <input type="text" name="uname" placeholder="Enter Username" required>
             <input type="password" name="pass" placeholder="Enter Password" required>
 
-<%--
             <c:if test="${not empty msg}">
             <c:out value="${msg}"></c:out> 
             </c:if>       
---%>
 
             <button type="submit">Register</button>
         </form>

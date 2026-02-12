@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,9 +35,9 @@
 </tr>
 <tr>
 <td><c:out value="${product.pid}"></c:out></td>
-<td><c:out value="${product.pname}"></c:out><</td>
-<td><c:out value="${product.qty}"></c:out><</td>
-<td><c:out value="${product.price}"></c:out><</td>
+<td><c:out value="${product.pname}"></c:out></td>
+<td><c:out value="${product.qty}"></c:out></td>
+<td><c:out value="${product.price}"></c:out></td>
 </tr>
 </table>
 </c:if>
