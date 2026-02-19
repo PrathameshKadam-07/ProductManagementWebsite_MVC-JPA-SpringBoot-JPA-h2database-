@@ -10,4 +10,5 @@ public class SpringBootDemoMvcjpaProductManageSystem1Application {
 		SpringApplication.run(SpringBootDemoMvcjpaProductManageSystem1Application.class, args);
 	}
 
+	
 }

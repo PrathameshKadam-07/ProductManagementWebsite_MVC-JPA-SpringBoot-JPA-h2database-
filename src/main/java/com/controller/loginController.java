@@ -1,55 +1,56 @@
 package com.controller;
-
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.bean.loginBean;
+import com.service.loginService;
 
-import com.dao.loginRepository;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class loginController {
 	
+	
 	@Autowired
-	loginRepository lr;
+	loginService lservice;
+	
 
-	@RequestMapping("/index")
+	@GetMapping("/index")
 	public String getindex() {
 		return "index";
 		}
 	
-	@RequestMapping("/createUser")
+	
+	@GetMapping("/createUser")
 	public String getcreateUser() {
 		return "createUser";
 	}
 	
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping("/login")
 	public String getlogin(@RequestParam("uname") String uname, @RequestParam("pass") String pass,HttpSession session,Model m) {
-		ArrayList<loginBean> list = lr.findByUnameAndPass(uname, pass);
-		
-		if(list.isEmpty()) 
+		loginBean lb = lservice.authenticate(uname,pass);
+    	
+		if(lb.getUname().equals(uname) && lb.getPass().equals(pass))
 		{
+			session.setAttribute("uname", uname);
+			return "home";
+		}
+		else {
 			m.addAttribute("msg","Invalid username or password");
 			return "index";
 		}
-		else 
-		{
-			session.setAttribute("uname", uname);
-			session.setAttribute("pass", pass);
-			return "home";
-		}
-	}
+    }
     
-    @RequestMapping(value = "/createUserPage", method = RequestMethod.POST)
-    public String createUser(loginBean lb,Model m) {
-    	lr.save(lb);
+    @PostMapping("/createUserPage")
+    public String createUser(@RequestParam("uname") String uname,@RequestParam("pass") String pass,Model m) 
+    {
+    	loginBean lb = new loginBean();
+    	lb.setUname(uname);
+    	lb.setPass(pass);
+    	lservice.saveUserPass(lb);
     	
     	m.addAttribute("msg","Successful User Created");
     	return "createUser";

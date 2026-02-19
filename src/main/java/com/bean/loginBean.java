@@ -11,10 +11,10 @@ public class loginBean {
 	
 	@Id
 	@Column(name = "Username")
-String uname;
+	String uname;
 	
 	@Column(name = "Password")
-String pass;
+	String pass;
 	
 	  public loginBean() {}
 
