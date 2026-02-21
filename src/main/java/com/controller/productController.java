@@ -58,10 +58,18 @@ public class productController {
 	}
 	
 
-	@DeleteMapping("/delete")
+	@PostMapping("/delete")
 	public String getdeleteProduct(@RequestParam("id") int id,Model m) {
-		pservice.deleteProduct(id);
-		m.addAttribute("msg","Successful Product Deleted");
+		productBean p = pservice.findProductById(id);
+		if(p.equals(null)) {
+			m.addAttribute("msg","No Product Found");
+		}
+		else {
+			pservice.deleteProduct(id);
+			m.addAttribute("msg","Successful Product Deleted");
+		}
+		
+		
 		
 		return "deleteProduct";
 	}
@@ -79,7 +87,7 @@ public class productController {
 	
 
 	
-	@GetMapping("/showbyid")
+	@PostMapping("/showbyid")
 	public String getshowbyID(@RequestParam("id") int id,Model m) {
 
 		productBean product = pservice.findProductById(id);

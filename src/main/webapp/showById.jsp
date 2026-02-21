@@ -96,6 +96,7 @@
     <h5 class="px-3 mb-3">Menu</h5>
     <a href="home">🏠 Home</a>
     <a href="addProduct">➕ Add Product</a>
+    <a href="deleteProduct">🗑️ Delete Product</a>
     <a href="updateProduct">✏️ Update Product</a>
     <a href="showById">🔍 Show Product by ID</a>
     <a href="Showall">📦 Show All Products</a>
@@ -115,30 +116,30 @@
                     </form>
 
                     <!-- Product Not Found -->
-                    <c:if test="${product == null && param.id != null}">
+                   <c:if test="${product != null && empty product}">
                         <h5 class="text-danger text-center">Product not found</h5>
                     </c:if>
 
                     <!-- Product Found -->
-                    <c:if test="${product != null}">
+                    <c:if test="${not empty product}">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover align-middle">
-                                <thead>
+                        
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Qty</th>
                                         <th>Price</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                            
+                             
                                     <tr>
                                         <td>${product.pid}</td>
                                         <td>${product.pname}</td>
                                         <td>${product.qty}</td>
                                         <td>${product.price}</td>
                                     </tr>
-                                </tbody>
+                        
                             </table>
                         </div>
                     </c:if>

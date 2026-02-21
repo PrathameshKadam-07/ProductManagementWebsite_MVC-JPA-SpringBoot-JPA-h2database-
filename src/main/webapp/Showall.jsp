@@ -97,6 +97,7 @@
     <h5 class="px-3 mb-3">Menu</h5>
     <a href="home">🏠 Home</a>
     <a href="addProduct">➕ Add Product</a>
+    <a href="deleteProduct">🗑️ Delete Product</a>
     <a href="updateProduct">✏️ Update Product</a>
     <a href="showById">🔍 Show Product by ID</a>
     <a href="Showall">📦 Show All Products</a>

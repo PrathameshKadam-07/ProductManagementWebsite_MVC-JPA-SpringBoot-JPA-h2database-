@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Product</title>
+    <title>Delete Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap 5 -->
@@ -23,18 +23,13 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
         }
-
-        .navbar {
-            font-weight: 600;
-        }
-
+        .navbar { font-weight: 600; }
         .sidebar {
             min-height: 100vh;
             background-color: #343a40;
             color: #fff;
             padding-top: 1rem;
         }
-
         .sidebar a {
             color: #adb5bd;
             text-decoration: none;
@@ -42,34 +37,26 @@
             padding: 0.75rem 1rem;
             transition: all 0.3s ease;
         }
-
         .sidebar a:hover {
             background-color: #495057;
             color: #fff;
         }
-
         .card {
             border-radius: 12px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 6px 18px rgba(0,0,0,0.15);
         }
-
         .btn-custom {
             transition: all 0.3s ease;
         }
-
         .btn-custom:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-
-        .alert {
-            font-size: 0.9rem;
-        }
+        .alert { font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -84,35 +71,26 @@
     <div class="container-fluid">
         <div class="row">
 
-<!-- Sidebar -->
-<div class="col-md-3 col-lg-2 sidebar">
-    <h5 class="px-3 mb-3">Menu</h5>
-    <a href="home">🏠 Home</a>
-    <a href="addProduct">➕ Add Product</a>
-    <a href="updateProduct">✏️ Update Product</a>
-    <a href="showById">🔍 Show Product by ID</a>
-    <a href="Showall">📦 Show All Products</a>
-</div>
-
-            
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <h5 class="px-3 mb-3">Menu</h5>
+                <a href="home">🏠 Home</a>
+                <a href="addProduct">➕ Add Product</a>
+                <a href="deleteProduct">🗑️ Delete Product</a>
+                <a href="updateProduct">✏️ Update Product</a>
+                <a href="showById">🔍 Show Product by ID</a>
+                <a href="Showall">📦 Show All Products</a>
+              
+            </div>
 
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 p-4">
                 <div class="card shadow-lg p-4 animate__animated animate__fadeIn">
-                    <h3 class="text-center mb-4 fw-semibold">Add Product</h3>
+                    <h3 class="text-center mb-4 fw-semibold">Delete Product</h3>
 
-                    <form action="add" method="post">
+                    <form action="delete" method="post">
                         <div class="mb-3">
-                            <input type="text" name="pid" class="form-control" placeholder="Product ID" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" name="pname" class="form-control" placeholder="Product Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="number" name="qty" class="form-control" placeholder="Quantity" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="number" name="price" class="form-control" placeholder="Price" required>
+                            <input type="text" name="id" class="form-control" placeholder="Enter Product ID to Delete" required>
                         </div>
 
                         <!-- Message -->
@@ -122,7 +100,7 @@
                             </div>
                         </c:if>
 
-                        <button type="submit" class="btn btn-primary w-100 btn-custom">Add</button>
+                        <button type="submit" class="btn btn-danger w-100 btn-custom">Delete</button>
                     </form>
 
                     <div class="text-center mt-3">
@@ -133,7 +111,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS (for responsive navbar only) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
