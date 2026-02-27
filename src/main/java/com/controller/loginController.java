@@ -18,9 +18,9 @@ public class loginController {
 	loginService lservice;
 	
 
-	@GetMapping("/index")
+	@GetMapping("/loginPage")
 	public String getindex() {
-		return "index";
+		return "loginPage";
 		}
 	
 	
@@ -33,14 +33,14 @@ public class loginController {
 	public String getlogin(@RequestParam("uname") String uname, @RequestParam("pass") String pass,HttpSession session,Model m) {
 		loginBean lb = lservice.authenticate(uname,pass);
     	
-		if(lb.getUname().equals(uname) && lb.getPass().equals(pass))
+		if(lb!=null)
 		{
 			session.setAttribute("uname", uname);
 			return "home";
 		}
 		else {
 			m.addAttribute("msg","Invalid username or password");
-			return "index";
+			return "loginPage";
 		}
     }
     

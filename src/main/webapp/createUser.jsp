@@ -85,7 +85,7 @@
         </form>
 
         <div class="text-center mt-3">
-            <a href="index" class="text-decoration-none">Back to Login</a>
+            <a href="./loginPage.jsp" class="text-decoration-none">Back to Login</a>
         </div>
     </div>
 
