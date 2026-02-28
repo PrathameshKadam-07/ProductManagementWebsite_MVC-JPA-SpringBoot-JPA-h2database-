@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "productTable")
-public class productBean {
+public class ProductBean {
  
 	@Id
 	@Column(name = "Pid")
@@ -19,7 +19,7 @@ public class productBean {
 	@Column(name = "PRICE")
 	int price;
 	
-	 public productBean() {}
+	 public ProductBean() {}
 	 
 	public int getPid() {
 		return pid;

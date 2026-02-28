@@ -6,17 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.bean.loginBean;
-import com.service.loginService;
+import com.bean.LoginBean;
+import com.service.LoginService;
 
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class loginController {
+public class LoginController {
 	
 	
 	@Autowired
-	loginService lservice;
+	LoginService lservice;
 	
 	@Autowired
 	PasswordEncoder passEn;
@@ -34,7 +34,7 @@ public class loginController {
 	
     @PostMapping("/login")
 	public String getlogin(@RequestParam("uname") String uname, @RequestParam("pass") String pass,HttpSession session,Model m) {
-		loginBean lb = lservice.authenticate(uname);
+		LoginBean lb = lservice.authenticate(uname);
     	
 	    if (lb == null) {
 	    		m.addAttribute("msg","Invalid username or password");
@@ -55,7 +55,7 @@ public class loginController {
     @PostMapping("/createUserPage")
     public String createUser(@RequestParam("uname") String uname,@RequestParam("pass") String pass,Model m) 
     {
-    	loginBean lb = new loginBean();
+    	LoginBean lb = new LoginBean();
     	lb.setUname(uname);
     	lb.setPass(passEn.encode(pass));
     	

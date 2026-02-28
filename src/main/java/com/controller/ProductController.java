@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.bean.productBean;
-import com.dao.productRepository;
-import com.service.productService;
+import com.bean.ProductBean;
+import com.dao.ProductRepository;
+import com.service.ProductService;
 
 @Controller
-public class productController {
+public class ProductController {
 	
 	@Autowired
-	productRepository pr;
+	ProductRepository pr;
 	
 	@Autowired
-	productService pservice;
+	ProductService pservice;
 	
     @GetMapping("/")
     public String home() {
@@ -50,7 +50,7 @@ public class productController {
 	}
 	
 	@PostMapping("/add")
-	public String getaddProduct(productBean p,Model m) {
+	public String getaddProduct(ProductBean p,Model m) {
 		pservice.saveProduct(p);
 		m.addAttribute("msg","Successful Product Added");
 		
@@ -60,7 +60,7 @@ public class productController {
 
 	@PostMapping("/delete")
 	public String getdeleteProduct(@RequestParam("id") int id,Model m) {
-		productBean p = pservice.findProductById(id);
+		ProductBean p = pservice.findProductById(id);
 		if(p.equals(null)) {
 			m.addAttribute("msg","No Product Found");
 		}
@@ -77,7 +77,7 @@ public class productController {
 
 	
 	@PutMapping("/update")
-	public String getupdateProduct(productBean p,Model m) {
+	public String getupdateProduct(ProductBean p,Model m) {
 		
 		pservice.saveProduct(p);
 		m.addAttribute("msg","Successful Product Updated");
@@ -90,7 +90,7 @@ public class productController {
 	@PostMapping("/showbyid")
 	public String getshowbyID(@RequestParam("id") int id,Model m) {
 
-		productBean product = pservice.findProductById(id);
+		ProductBean product = pservice.findProductById(id);
 		m.addAttribute("product",product);
 		
 		return "showById";
@@ -99,7 +99,7 @@ public class productController {
 	@GetMapping("/Showall")
 	public String getshowAll(Model m) {
 		
-		ArrayList<productBean> list = pservice.findAllProduct();	
+		ArrayList<ProductBean> list = pservice.findAllProduct();	
 		m.addAttribute("list",list);
 		
 		return "Showall";

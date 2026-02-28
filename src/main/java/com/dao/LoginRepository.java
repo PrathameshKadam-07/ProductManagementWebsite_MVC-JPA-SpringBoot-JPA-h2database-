@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
-import com.bean.loginBean;
+import com.bean.LoginBean;
 
 @Repository
-public interface loginRepository extends JpaRepository<loginBean,String> {
+public interface LoginRepository extends JpaRepository<LoginBean,String> {
 	
 }

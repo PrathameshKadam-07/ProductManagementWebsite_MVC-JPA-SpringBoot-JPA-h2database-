@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "loginTable")
-public class loginBean {
+public class LoginBean {
 	
 	@Id
 	@Column(name = "Username")
@@ -16,7 +16,7 @@ public class loginBean {
 	@Column(name = "Password")
 	String pass;
 	
-	  public loginBean() {}
+	  public LoginBean() {}
 
 	  public String getUname() {
 		  return uname;
