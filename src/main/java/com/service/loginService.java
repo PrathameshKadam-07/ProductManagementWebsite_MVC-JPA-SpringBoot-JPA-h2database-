@@ -6,6 +6,6 @@ public interface loginService
 
 	public void saveUserPass(loginBean l);	
 	
-	public loginBean authenticate(String uname,String pass); 
+	public loginBean authenticate(String uname); 
 
 }

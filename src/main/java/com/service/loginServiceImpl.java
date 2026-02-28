@@ -17,8 +17,8 @@ public class loginServiceImpl implements loginService {
 	}
 
 	@Override
-	public loginBean authenticate(String uname,String pass) {
-	    loginBean lb = lrepo.findByUnameAndPass(uname,pass);
+	public loginBean authenticate(String uname) {
+	    loginBean lb = lrepo.findById(uname).orElse(null);
 		return lb;
 	}
 	

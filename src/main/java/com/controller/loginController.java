@@ -1,5 +1,6 @@
 package com.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ public class loginController {
 	@Autowired
 	loginService lservice;
 	
+	@Autowired
+	PasswordEncoder passEn;
 
 	@GetMapping("/loginPage")
 	public String getindex() {
@@ -31,9 +34,13 @@ public class loginController {
 	
     @PostMapping("/login")
 	public String getlogin(@RequestParam("uname") String uname, @RequestParam("pass") String pass,HttpSession session,Model m) {
-		loginBean lb = lservice.authenticate(uname,pass);
+		loginBean lb = lservice.authenticate(uname);
     	
-		if(lb!=null)
+	    if (lb == null) {
+	    		m.addAttribute("msg","Invalid username or password");
+	        return "loginPage";
+	    }
+		if(lb.getUname().equals(uname) && passEn.matches(pass, lb.getPass()))
 		{
 			session.setAttribute("uname", uname);
 			return "home";
@@ -43,13 +50,15 @@ public class loginController {
 			return "loginPage";
 		}
     }
+
     
     @PostMapping("/createUserPage")
     public String createUser(@RequestParam("uname") String uname,@RequestParam("pass") String pass,Model m) 
     {
     	loginBean lb = new loginBean();
     	lb.setUname(uname);
-    	lb.setPass(pass);
+    	lb.setPass(passEn.encode(pass));
+    	
     	lservice.saveUserPass(lb);
     	
     	m.addAttribute("msg","Successful User Created");
