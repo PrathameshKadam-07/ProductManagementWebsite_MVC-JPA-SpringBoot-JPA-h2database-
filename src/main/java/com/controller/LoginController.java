@@ -20,7 +20,12 @@ public class LoginController {
 	
 	@Autowired
 	PasswordEncoder passEn;
-
+	
+    @GetMapping("/")
+    public String home() {
+        return "loginPage";
+    }
+	
 	@GetMapping("/loginPage")
 	public String getindex() {
 		return "loginPage";
