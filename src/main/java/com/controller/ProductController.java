@@ -19,10 +19,6 @@ public class ProductController {
 	@Autowired
 	ProductService pservice;
 	
-    @GetMapping("/")
-    public String home() {
-        return "index";  
-    }
 	
 	@GetMapping("/home")
 	public String getindex() {
